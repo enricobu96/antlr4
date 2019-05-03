@@ -1,0 +1,6 @@
+#!/bin/sh
+export ANTLR_HOME=${PWD}
+export PATH=$PATH:${ANTLR_HOME}/bin
+export CPLUS_INCLUDE_PATH=${CPLUS_INCLUDE_PATH}:${ANTLR_HOME}/include
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${ANTLR_HOME}/lib
+
