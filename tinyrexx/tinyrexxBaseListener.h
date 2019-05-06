@@ -34,6 +34,9 @@ public:
   virtual void enterW_loop(tinyrexxParser::W_loopContext * /*ctx*/) override { }
   virtual void exitW_loop(tinyrexxParser::W_loopContext * /*ctx*/) override { }
 
+  virtual void enterF_loop(tinyrexxParser::F_loopContext * /*ctx*/) override { }
+  virtual void exitF_loop(tinyrexxParser::F_loopContext * /*ctx*/) override { }
+
   virtual void enterI_t_e(tinyrexxParser::I_t_eContext * /*ctx*/) override { }
   virtual void exitI_t_e(tinyrexxParser::I_t_eContext * /*ctx*/) override { }
 
@@ -49,6 +52,9 @@ public:
   virtual void enterR_op(tinyrexxParser::R_opContext * /*ctx*/) override { }
   virtual void exitR_op(tinyrexxParser::R_opContext * /*ctx*/) override { }
 
+  virtual void enterB_op(tinyrexxParser::B_opContext * /*ctx*/) override { }
+  virtual void exitB_op(tinyrexxParser::B_opContext * /*ctx*/) override { }
+
   virtual void enterTerminate(tinyrexxParser::TerminateContext * /*ctx*/) override { }
   virtual void exitTerminate(tinyrexxParser::TerminateContext * /*ctx*/) override { }
 
@@ -62,3 +68,4 @@ public:
   virtual void visitErrorNode(antlr4::tree::ErrorNode * /*node*/) override { }
 
 };
+

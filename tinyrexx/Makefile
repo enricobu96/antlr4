@@ -1,4 +1,4 @@
-CXX=g++
+CXX=g++-6
 CXXFLAGS=-std=c++11 -I $(ANTLR_HOME)/include
 LDFLAGS=-lantlr4-runtime -L $(ANTLR_HOME)/lib
 DEPS=tinyrexxLexer.cpp tinyrexxParser.cpp
@@ -22,8 +22,8 @@ ANTLRS=tinyrexxBaseListener.h \
 syncheck: $(SCOBJS) $(OBJS) $(DEPS)
 	$(CXX) -o syncheck $(SCOBJS) $(OBJS) $(LDFLAGS)
 
-translate: $(TOBJS) $(OBJS) $(TDEPS) $(DEPS) 
-	$(CXX) -o translate $(TOBJS) $(OBJS) $(LDFLAGS)	
+translate: $(TOBJS) $(OBJS) $(TDEPS) $(DEPS)
+	$(CXX) -o translate $(TOBJS) $(OBJS) $(LDFLAGS)
 
 %.o: %.cpp $(DEPS)
 	$(CXX) -c -o $@ $< $(CXXFLAGS)
@@ -33,4 +33,3 @@ $(DEPS): tinyrexx.g4
 
 clean:
 	rm -f $(OBJS) $(TOBJS) $(SCOBJS) syncheck translate $(ANTLRS)
-

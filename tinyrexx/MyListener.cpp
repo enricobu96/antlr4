@@ -114,12 +114,12 @@ void MyListener::exitR_op(tinyrexxParser::R_opContext * ctx) {
 
 //implementazione enterTerminate
 void MyListener::enterTerminate(tinyrexxParser::TerminateContext * ctx) {
-  cout << "return ";
+  cout << string(indent, ' ') << "return ";
 }
 
 //implementazione exitTerminate
 void MyListener::exitTerminate(tinyrexxParser::TerminateContext * ctx) {
-  cout << ";";
+  cout << " ;" << endl;
 }
 
 
