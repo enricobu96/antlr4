@@ -141,4 +141,58 @@ void MyListener::enterTest(tinyrexxParser::TestContext * ctx){
 
 void MyListener::exitTest(tinyrexxParser::TestContext * ctx){
     cout << ") {" << endl;
+    cout << endl << "end";
+}
+
+void MyListener::enterF_loop(tinyrexxParser::F_loopContext * ctx){
+    cout << string(indent, ' ') << "for ";
+    indent += 4;
+}
+
+void MyListener::exitF_loop(tinyrexxParser::F_loopContext * ctx){
+    cout << endl << "end";
+    indent -= 4;
+}
+
+void MyListener::enterI_t_e(tinyrexxParser::I_t_eContext * ctx){
+    cout << string(indent, ' ') << "if ";
+    indent += 4;
+}
+
+void MyListener::exitI_t_e(tinyrexxParser::I_t_eContext * ctx){
+    cout << endl << "end";
+    indent -= 4;
+}
+
+void MyListener::enterB_op(tinyrexxParser::B_opContext * ctx){
+  // controllo in quale caso sono
+  if(ctx->ID() != NULL) {
+      // caso ID semplice
+      cout << ctx->ID()->getText();
+  } else if(ctx->NUMBER() != NULL) {
+      // caso valore numerico semplice
+      cout << ctx->NUMBER()->getText();
+  } else if(ctx->MINUS() !=  NULL) {
+      // caso operatore - unario
+      cout << "-" ;
+  } else if(ctx->a_op() != NULL) {
+      // caso operatore binario: gestito da enterA_op
+  } else {
+      // caso parentesi
+      cout << "(" ;
+  }
+}
+
+void MyListener::exitB_op(tinyrexxParser::B_opContext * ctx){
+  if(ctx->EQUAL() != NULL) {
+      cout << " == ";
+  } else if(ctx->LT() != NULL) {
+      cout << " < ";
+  } else if(ctx->LEQ() != NULL) {
+      cout << " <= ";
+  } else if(ctx->GT() != NULL) {
+      cout << " > ";
+  } else if(ctx->GEQ() != NULL) {
+      cout << " >= ";
+  }
 }
