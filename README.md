@@ -80,7 +80,7 @@ Modificate il codice del traduttore per fare in modo che funzioni per programmi 
 - [tinyrexx.g4](https://github.com/enricobu96/TMOALF/blob/master/tinyrexx/tinyrexx.g4) - Sintassi del linguaggio
 - [MyListener.cpp](https://github.com/enricobu96/TMOALF/blob/master/tinyrexx/MyListener.cpp) - Implementazione della sintassi
 - [MyListener.h](https://github.com/enricobu96/TMOALF/blob/master/tinyrexx/MyListener.h) - File di header
-- [Esempio 1](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [Esempio 2](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+- [Esempio 1](https://github.com/enricobu96/antlr4/blob/master/examples/fibonacci.rexx)
+- [Esempio 2](https://github.com/enricobu96/antlr4/blob/master/examples/tipotriangolo.rexx)
 - [Traduzione in C++ di Esempio 1](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 - [Traduzione in C++ di Esempio 2](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
