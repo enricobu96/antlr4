@@ -2,7 +2,7 @@ p=1
 s=1
 pull n
 
-if (n == 0 | n==1) then
+if ( n == 0 | n == 1 ) then
   do
     say 1
   end

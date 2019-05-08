@@ -2,6 +2,11 @@ pull a
 pull b
 pull c
 
+if ((a+b<c) | (a+c<b) | (b+c<a)) then
+do
+  exit 0
+end
+
 if (a==b & b==c) then
 do
   say 1

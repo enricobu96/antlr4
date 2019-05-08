@@ -13,7 +13,7 @@ i_t_e	    : 'if' guardia 'then' 'do' statement+ 'end' | 'if' guardia 'then' 'do'
 test      : a_expr r_op a_expr;
 a_expr    : ID | NUMBER | '(' a_expr ')' | a_expr a_op a_expr | MINUS a_expr ;
 a_op      : MINUS | PLUS | MUL | DIV ;
-r_op      : EQUAL | LT | LEQ | GT | GEQ ;
+r_op      : EQUAL | LT | LEQ | GT | GEQ | DISEQUAL;
 b_op      : b_op AND b_op | b_op OR b_op | NOT b_op | OB b_op CB | test;
 terminate : 'exit' a_expr;
 guardia   : test | a_expr;
@@ -28,6 +28,7 @@ PLUS      : '+' ;
 MUL       : '*' ;
 DIV       : '/' ;
 EQUAL     : '==' ;
+DISEQUAL  : '!=' ;
 LT        : '<' ;
 LEQ       : '<=' ;
 GT        : '>' ;
