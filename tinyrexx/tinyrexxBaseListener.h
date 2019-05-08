@@ -37,9 +37,6 @@ public:
   virtual void enterF_loop(tinyrexxParser::F_loopContext * /*ctx*/) override { }
   virtual void exitF_loop(tinyrexxParser::F_loopContext * /*ctx*/) override { }
 
-  virtual void enterI_t_e(tinyrexxParser::I_t_eContext * /*ctx*/) override { }
-  virtual void exitI_t_e(tinyrexxParser::I_t_eContext * /*ctx*/) override { }
-
   virtual void enterTest(tinyrexxParser::TestContext * /*ctx*/) override { }
   virtual void exitTest(tinyrexxParser::TestContext * /*ctx*/) override { }
 
@@ -54,6 +51,9 @@ public:
 
   virtual void enterB_op(tinyrexxParser::B_opContext * /*ctx*/) override { }
   virtual void exitB_op(tinyrexxParser::B_opContext * /*ctx*/) override { }
+
+  virtual void enterF_cond(tinyrexxParser::F_condContext * /*ctx*/) override { }
+  virtual void exitF_cond(tinyrexxParser::F_condContext * /*ctx*/) override { }
 
   virtual void enterTerminate(tinyrexxParser::TerminateContext * /*ctx*/) override { }
   virtual void exitTerminate(tinyrexxParser::TerminateContext * /*ctx*/) override { }

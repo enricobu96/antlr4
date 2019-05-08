@@ -41,11 +41,14 @@ public:
   void enterTerminate(tinyrexxParser::TerminateContext * ctx);
   void exitTerminate(tinyrexxParser::TerminateContext * ctx);
 
-  void enterI_t_e(tinyrexxParser::I_t_eContext * ctx);
-  void exitI_t_e(tinyrexxParser::I_t_eContext * ctx);
+  //void enterI_t_e(tinyrexxParser::I_t_eContext * ctx);
+  //void exitI_t_e(tinyrexxParser::I_t_eContext * ctx);
 
   void enterF_loop(tinyrexxParser::F_loopContext * ctx);
   void exitF_loop(tinyrexxParser::F_loopContext * ctx);
+
+  void enterF_cond(tinyrexxParser::F_condContext * ctx);
+  void exitF_cond(tinyrexxParser::F_condContext * ctx);
 
   void enterB_op(tinyrexxParser::B_opContext * ctx);
   void exitB_op(tinyrexxParser::B_opContext * ctx);

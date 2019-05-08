@@ -110,6 +110,9 @@ void MyListener::exitR_op(tinyrexxParser::R_opContext * ctx) {
     } else if(ctx->GEQ() != NULL) {
         cout << " >= ";
     }
+    else if(ctx->DISEQUAL() != NULL) {
+      cout << "!= ";
+    }
 }
 
 //implementazione enterTerminate
@@ -150,11 +153,24 @@ void MyListener::enterF_loop(tinyrexxParser::F_loopContext * ctx){
 }
 
 void MyListener::exitF_loop(tinyrexxParser::F_loopContext * ctx){
-    cout << endl << "end";
+    cout << "}" << endl;
     indent -= 4;
 }
 
-void MyListener::enterI_t_e(tinyrexxParser::I_t_eContext * ctx){
+void enterF_cond(tinyrexxParser::F_condContext * ctx) {
+    cout << "(";
+    if(ctx->ID() != NULL) {
+      //gestito da assign
+    }
+    else if(ctx->b_op() != NULL) {
+      //gestito da b_op
+    }
+}
+void exitF_cond(tinyrexxParser::F_condContext * ctx) {
+    cout << ") {" << endl;
+}
+
+/* void MyListener::enterI_t_e(tinyrexxParser::I_t_eContext * ctx){
     cout << string(indent, ' ') << "if ";
     indent += 4;
 }
@@ -163,7 +179,7 @@ void MyListener::exitI_t_e(tinyrexxParser::I_t_eContext * ctx){
     cout << endl << "end";
     indent -= 4;
 }
-
+*/
 void MyListener::enterB_op(tinyrexxParser::B_opContext * ctx){
   // controllo in quale caso sono
   if(ctx->ID() != NULL) {
