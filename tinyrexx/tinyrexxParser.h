@@ -76,6 +76,8 @@ public:
     PrintContext *print();
     InputContext *input();
     W_loopContext *w_loop();
+    F_loopContext *f_loop();
+    I_t_eContext *i_t_e();
     B_opContext *b_op();
     TerminateContext *terminate();
 

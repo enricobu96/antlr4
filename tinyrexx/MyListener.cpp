@@ -158,7 +158,7 @@ void MyListener::exitF_loop(tinyrexxParser::F_loopContext * ctx){
 void MyListener::enterF_cond(tinyrexxParser::F_condContext * ctx) {
     cout << "(";
     if(ctx->ID() != NULL) {
-      //gestito da assign
+        //gestito da assign
     }
     else if(ctx->b_op() != NULL) {
       //gestito da b_op
@@ -172,7 +172,7 @@ void MyListener::exitF_cond(tinyrexxParser::F_condContext * ctx) {
 //Da rivedere nella struttura della grammatica, qualcosa non funziona
 
 void MyListener::enterI_t_e(tinyrexxParser::I_t_eContext * ctx){
-    cout << string(indent, ' ') << "if (";
+    cout << string(indent, ' ') << "if ";
     indent += 4;
 }
 

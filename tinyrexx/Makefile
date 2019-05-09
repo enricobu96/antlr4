@@ -1,4 +1,4 @@
-CXX=g++-6
+CXX=g++
 CXXFLAGS=-std=c++11 -I $(ANTLR_HOME)/include
 LDFLAGS=-lantlr4-runtime -L $(ANTLR_HOME)/lib
 DEPS=tinyrexxLexer.cpp tinyrexxParser.cpp

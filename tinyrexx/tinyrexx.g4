@@ -2,7 +2,7 @@ grammar tinyrexx;
 
 program   : statement+;
 
-statement : assign | print | input | w_loop | b_op | terminate;
+statement : assign | print | input | w_loop | f_loop | i_t_e | b_op | terminate;
 
 assign    : ID '=' a_expr | ID '=' b_op;
 print     : 'say' a_expr ;
