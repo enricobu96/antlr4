@@ -13,15 +13,17 @@ class  tinyrexxParser : public antlr4::Parser {
 public:
   enum {
     T__0 = 1, T__1 = 2, T__2 = 3, T__3 = 4, T__4 = 5, T__5 = 6, T__6 = 7, 
-    T__7 = 8, OB = 9, CB = 10, AND = 11, OR = 12, NOT = 13, MINUS = 14, 
-    PLUS = 15, MUL = 16, DIV = 17, EQUAL = 18, DISEQUAL = 19, LT = 20, LEQ = 21, 
-    GT = 22, GEQ = 23, ID = 24, NUMBER = 25, WS = 26, ErrorChar = 27
+    T__7 = 8, T__8 = 9, T__9 = 10, T__10 = 11, OB = 12, CB = 13, AND = 14, 
+    OR = 15, NOT = 16, MINUS = 17, PLUS = 18, MUL = 19, DIV = 20, EQUAL = 21, 
+    DISEQUAL = 22, LT = 23, LEQ = 24, GT = 25, GEQ = 26, ID = 27, NUMBER = 28, 
+    WS = 29, ErrorChar = 30
   };
 
   enum {
     RuleProgram = 0, RuleStatement = 1, RuleAssign = 2, RulePrint = 3, RuleInput = 4, 
-    RuleW_loop = 5, RuleF_loop = 6, RuleTest = 7, RuleA_expr = 8, RuleA_op = 9, 
-    RuleR_op = 10, RuleB_op = 11, RuleF_cond = 12, RuleTerminate = 13, RuleGuardia = 14
+    RuleW_loop = 5, RuleF_loop = 6, RuleTest = 7, RuleI_t_e = 8, RuleA_expr = 9, 
+    RuleA_op = 10, RuleR_op = 11, RuleB_op = 12, RuleF_cond = 13, RuleElse_bl = 14, 
+    RuleThen_bl = 15, RuleTerminate = 16
   };
 
   tinyrexxParser(antlr4::TokenStream *input);
@@ -42,13 +44,15 @@ public:
   class W_loopContext;
   class F_loopContext;
   class TestContext;
+  class I_t_eContext;
   class A_exprContext;
   class A_opContext;
   class R_opContext;
   class B_opContext;
   class F_condContext;
-  class TerminateContext;
-  class GuardiaContext; 
+  class Else_blContext;
+  class Then_blContext;
+  class TerminateContext; 
 
   class  ProgramContext : public antlr4::ParserRuleContext {
   public:
@@ -168,6 +172,23 @@ public:
 
   TestContext* test();
 
+  class  I_t_eContext : public antlr4::ParserRuleContext {
+  public:
+    I_t_eContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    F_condContext *f_cond();
+    Then_blContext *then_bl();
+    std::vector<StatementContext *> statement();
+    StatementContext* statement(size_t i);
+    Else_blContext *else_bl();
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+   
+  };
+
+  I_t_eContext* i_t_e();
+
   class  A_exprContext : public antlr4::ParserRuleContext {
   public:
     A_exprContext(antlr4::ParserRuleContext *parent, size_t invokingState);
@@ -259,6 +280,30 @@ public:
 
   F_condContext* f_cond();
 
+  class  Else_blContext : public antlr4::ParserRuleContext {
+  public:
+    Else_blContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+   
+  };
+
+  Else_blContext* else_bl();
+
+  class  Then_blContext : public antlr4::ParserRuleContext {
+  public:
+    Then_blContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+   
+  };
+
+  Then_blContext* then_bl();
+
   class  TerminateContext : public antlr4::ParserRuleContext {
   public:
     TerminateContext(antlr4::ParserRuleContext *parent, size_t invokingState);
@@ -271,20 +316,6 @@ public:
   };
 
   TerminateContext* terminate();
-
-  class  GuardiaContext : public antlr4::ParserRuleContext {
-  public:
-    GuardiaContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    TestContext *test();
-    A_exprContext *a_expr();
-
-    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
-    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
-   
-  };
-
-  GuardiaContext* guardia();
 
 
   virtual bool sempred(antlr4::RuleContext *_localctx, size_t ruleIndex, size_t predicateIndex) override;

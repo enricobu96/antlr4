@@ -40,6 +40,9 @@ public:
   virtual void enterTest(tinyrexxParser::TestContext * /*ctx*/) override { }
   virtual void exitTest(tinyrexxParser::TestContext * /*ctx*/) override { }
 
+  virtual void enterI_t_e(tinyrexxParser::I_t_eContext * /*ctx*/) override { }
+  virtual void exitI_t_e(tinyrexxParser::I_t_eContext * /*ctx*/) override { }
+
   virtual void enterA_expr(tinyrexxParser::A_exprContext * /*ctx*/) override { }
   virtual void exitA_expr(tinyrexxParser::A_exprContext * /*ctx*/) override { }
 
@@ -55,11 +58,14 @@ public:
   virtual void enterF_cond(tinyrexxParser::F_condContext * /*ctx*/) override { }
   virtual void exitF_cond(tinyrexxParser::F_condContext * /*ctx*/) override { }
 
+  virtual void enterElse_bl(tinyrexxParser::Else_blContext * /*ctx*/) override { }
+  virtual void exitElse_bl(tinyrexxParser::Else_blContext * /*ctx*/) override { }
+
+  virtual void enterThen_bl(tinyrexxParser::Then_blContext * /*ctx*/) override { }
+  virtual void exitThen_bl(tinyrexxParser::Then_blContext * /*ctx*/) override { }
+
   virtual void enterTerminate(tinyrexxParser::TerminateContext * /*ctx*/) override { }
   virtual void exitTerminate(tinyrexxParser::TerminateContext * /*ctx*/) override { }
-
-  virtual void enterGuardia(tinyrexxParser::GuardiaContext * /*ctx*/) override { }
-  virtual void exitGuardia(tinyrexxParser::GuardiaContext * /*ctx*/) override { }
 
 
   virtual void enterEveryRule(antlr4::ParserRuleContext * /*ctx*/) override { }
@@ -68,4 +74,3 @@ public:
   virtual void visitErrorNode(antlr4::tree::ErrorNode * /*node*/) override { }
 
 };
-

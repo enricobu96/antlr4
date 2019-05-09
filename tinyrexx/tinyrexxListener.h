@@ -38,6 +38,9 @@ public:
   virtual void enterTest(tinyrexxParser::TestContext *ctx) = 0;
   virtual void exitTest(tinyrexxParser::TestContext *ctx) = 0;
 
+  virtual void enterI_t_e(tinyrexxParser::I_t_eContext *ctx) = 0;
+  virtual void exitI_t_e(tinyrexxParser::I_t_eContext *ctx) = 0;
+
   virtual void enterA_expr(tinyrexxParser::A_exprContext *ctx) = 0;
   virtual void exitA_expr(tinyrexxParser::A_exprContext *ctx) = 0;
 
@@ -53,11 +56,14 @@ public:
   virtual void enterF_cond(tinyrexxParser::F_condContext *ctx) = 0;
   virtual void exitF_cond(tinyrexxParser::F_condContext *ctx) = 0;
 
+  virtual void enterElse_bl(tinyrexxParser::Else_blContext *ctx) = 0;
+  virtual void exitElse_bl(tinyrexxParser::Else_blContext *ctx) = 0;
+
+  virtual void enterThen_bl(tinyrexxParser::Then_blContext *ctx) = 0;
+  virtual void exitThen_bl(tinyrexxParser::Then_blContext *ctx) = 0;
+
   virtual void enterTerminate(tinyrexxParser::TerminateContext *ctx) = 0;
   virtual void exitTerminate(tinyrexxParser::TerminateContext *ctx) = 0;
-
-  virtual void enterGuardia(tinyrexxParser::GuardiaContext *ctx) = 0;
-  virtual void exitGuardia(tinyrexxParser::GuardiaContext *ctx) = 0;
 
 
 };

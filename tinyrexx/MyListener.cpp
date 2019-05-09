@@ -144,12 +144,10 @@ void MyListener::enterTest(tinyrexxParser::TestContext * ctx){
 
 void MyListener::exitTest(tinyrexxParser::TestContext * ctx){
     cout << ") {" << endl;
-    cout << endl << "end";
 }
 
 void MyListener::enterF_loop(tinyrexxParser::F_loopContext * ctx){
     cout << string(indent, ' ') << "for ";
-    indent += 4;
 }
 
 void MyListener::exitF_loop(tinyrexxParser::F_loopContext * ctx){
@@ -157,7 +155,7 @@ void MyListener::exitF_loop(tinyrexxParser::F_loopContext * ctx){
     indent -= 4;
 }
 
-void enterF_cond(tinyrexxParser::F_condContext * ctx) {
+void MyListener::enterF_cond(tinyrexxParser::F_condContext * ctx) {
     cout << "(";
     if(ctx->ID() != NULL) {
       //gestito da assign
@@ -166,49 +164,64 @@ void enterF_cond(tinyrexxParser::F_condContext * ctx) {
       //gestito da b_op
     }
 }
-void exitF_cond(tinyrexxParser::F_condContext * ctx) {
+
+void MyListener::exitF_cond(tinyrexxParser::F_condContext * ctx) {
     cout << ") {" << endl;
 }
 
-/* void MyListener::enterI_t_e(tinyrexxParser::I_t_eContext * ctx){
-    cout << string(indent, ' ') << "if ";
+//Da rivedere nella struttura della grammatica, qualcosa non funziona
+
+void MyListener::enterI_t_e(tinyrexxParser::I_t_eContext * ctx){
+    cout << string(indent, ' ') << "if (";
     indent += 4;
 }
 
 void MyListener::exitI_t_e(tinyrexxParser::I_t_eContext * ctx){
-    cout << endl << "end";
+    cout << endl << "}";
     indent -= 4;
 }
-*/
+
+void MyListener::enterElse_bl(tinyrexxParser::Else_blContext * ctx){
+  indent -= 4;
+  cout << string(indent, ' ') << "}" << endl << "else {" << endl;
+  indent += 4;
+}
+
+void MyListener::exitElse_bl(tinyrexxParser::Else_blContext * ctx){
+  //indent -= 4;
+  //non fa nulla apparte sistemare l'output
+}
+
+void MyListener::enterThen_bl(tinyrexxParser::Then_blContext * ctx){
+  cout << ") {" << endl;
+  indent += 4;
+}
+
+void MyListener::exitThen_bl(tinyrexxParser::Then_blContext * ctx){
+  //non fa nulla, il blocco viene chiuso da i_t_e
+}
+
+//Anche l'operatore booleano non funziona, và corretto
+
 void MyListener::enterB_op(tinyrexxParser::B_opContext * ctx){
   // controllo in quale caso sono
-  if(ctx->ID() != NULL) {
-      // caso ID semplice
-      cout << ctx->ID()->getText();
-  } else if(ctx->NUMBER() != NULL) {
-      // caso valore numerico semplice
-      cout << ctx->NUMBER()->getText();
-  } else if(ctx->MINUS() !=  NULL) {
-      // caso operatore - unario
-      cout << "-" ;
-  } else if(ctx->a_op() != NULL) {
-      // caso operatore binario: gestito da enterA_op
+  if(ctx->AND() != NULL) {
+      cout << "&&";
+  } else if(ctx->OR() != NULL) {
+      cout << "||";
+  } else if(ctx->NOT() !=  NULL) {
+      cout << "!";
   } else {
-      // caso parentesi
       cout << "(" ;
   }
 }
 
 void MyListener::exitB_op(tinyrexxParser::B_opContext * ctx){
-  if(ctx->EQUAL() != NULL) {
-      cout << " == ";
-  } else if(ctx->LT() != NULL) {
-      cout << " < ";
-  } else if(ctx->LEQ() != NULL) {
-      cout << " <= ";
-  } else if(ctx->GT() != NULL) {
-      cout << " > ";
-  } else if(ctx->GEQ() != NULL) {
-      cout << " >= ";
+  if(ctx->AND() != NULL) {
+
+  } else if(ctx->OR() != NULL) {
+
+  } else if(ctx->NOT() != NULL) {
+
   }
 }
