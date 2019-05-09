@@ -178,11 +178,17 @@ void MyListener::exitF_cond(tinyrexxParser::F_condContext * ctx) {
 //Da rivedere nella struttura della grammatica, qualcosa non funziona
 
 void MyListener::enterI_t_e(tinyrexxParser::I_t_eContext * ctx){
-
+    //entrata in if_block
 }
 
 void MyListener::exitI_t_e(tinyrexxParser::I_t_eContext * ctx){
+    //esce dall if_condition e l'ultima parentesi viene messa dal do_block
+}
 
+void MyListener::enterElse_bl(tinyrexxParser::Else_blContext * ctx){
+  indent -= 4;
+  cout << string(indent, ' ') << "}" << endl << "else {" << endl;
+  indent += 4;
 }
 
 void MyListener::enterIf_cond(tinyrexxParser::If_condContext * ctx){
@@ -223,4 +229,14 @@ void MyListener::exitB_op(tinyrexxParser::B_opContext * ctx){
   } else if(ctx->NOT() != NULL) {
 
   }
+}
+
+void enterDo_block(tinyrexxParser::Do_blockContext* ctx){
+  cout << "{" << endl;
+  indent += 4;
+}
+
+void exitDo_block(tinyrexxParser::Do_blockContext* ctx){
+  indent -= 4;
+  cout << "}" << endl;
 }
