@@ -61,11 +61,11 @@ void MyListener::exitW_loop(tinyrexxParser::W_loopContext * ctx){
 
 
 void MyListener::enterTest(tinyrexxParser::TestContext * ctx){
-    cout << "(";
+    cout << "(";  // chiedere se lasciare o togliere
 }
 
 void MyListener::exitTest(tinyrexxParser::TestContext * ctx){
-    cout << ") {" << endl;
+    cout << ")";  // chiedere se lasciare o togliere
 }
 
 
@@ -83,23 +83,25 @@ void MyListener::enterIf_cond(tinyrexxParser::If_condContext * ctx){
 }
 
 void MyListener::exitIf_cond(tinyrexxParser::If_condContext * ctx){
-
 }
 
 
-void enterDo_block(tinyrexxParser::Do_blockContext* ctx){
+void MyListener::enterDo_block(tinyrexxParser::Do_blockContext* ctx){
   cout << "{" << endl;
   indent += 4;
 }
 
-void exitDo_block(tinyrexxParser::Do_blockContext* ctx){
-  indent -= 4;
-  cout << "}" << endl;
+void MyListener::exitDo_block(tinyrexxParser::Do_blockContext* ctx){
+  indent -=4;
+  cout << string(indent, ' ') << "}" << endl;
 }
 
+void MyListener::enterElse_cond(tinyrexxParser::Else_condContext * ctx){
+  cout << string(indent, ' ') << "else";
+}
 
 void MyListener::exitElse_cond(tinyrexxParser::Else_condContext * ctx){
-  cout << string(indent, ' ') << " else " << endl;
+
 }
 
 
@@ -167,7 +169,7 @@ void MyListener::exitB_expr(tinyrexxParser::B_exprContext * ctx) {
         // caso false
     } else if(ctx->NOT() !=  NULL) {
         // caso operatore NOT unario
-    } else if(ctx->B_op() != NULL) {
+    } else if(ctx->b_op() != NULL) {
         // caso operatore binario: gestito da exitB_op
     } else if(ctx->test() != NULL) {
         // caso operatore binario: gestito da exitTest
@@ -212,7 +214,7 @@ void MyListener::exitB_op(tinyrexxParser::B_opContext * ctx) {
     // controllo operatore aritmetico
     if(ctx->AND() != NULL) {
         cout << " && ";
-    } else if(ctx->MINUS() != NULL) {
+    } else if(ctx->OR() != NULL) {
         cout << " || ";
     }
 }

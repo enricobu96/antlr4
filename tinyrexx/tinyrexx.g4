@@ -10,7 +10,7 @@ input     : 'pull' ID ;
 w_loop    : 'do' 'while' test statement+ 'end' ;
 test      : a_expr r_op a_expr;
 i_t_e     : if_cond do_block | if_cond do_block else_cond do_block;
-if_cond   : 'if' b_op 'then';
+if_cond   : 'if' b_expr 'then';
 do_block  : 'do' statement+ 'end';
 else_cond : 'else';
 a_expr    : ID | NUMBER | '(' a_expr ')' | a_expr a_op a_expr | MINUS a_expr ;

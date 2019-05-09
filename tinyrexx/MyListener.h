@@ -44,6 +44,7 @@ public:
   void enterDo_block(tinyrexxParser::Do_blockContext * ctx);
   void exitDo_block(tinyrexxParser::Do_blockContext * ctx);
 
+  void enterElse_cond(tinyrexxParser::Else_condContext * ctx);
   void exitElse_cond(tinyrexxParser::Else_condContext * ctx);
 
   void enterA_expr(tinyrexxParser::A_exprContext * ctx);
