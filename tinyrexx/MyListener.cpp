@@ -158,14 +158,20 @@ void MyListener::exitF_loop(tinyrexxParser::F_loopContext * ctx){
 void MyListener::enterF_cond(tinyrexxParser::F_condContext * ctx) {
     cout << "(";
     if(ctx->ID() != NULL) {
-        //gestito da assign
+        cout << ctx->ID()->getText() << "=";
+        //assign si occupa solo di scrivere il numero, non anche variabile=
     }
-    else if(ctx->b_op() != NULL) {
+    else if(ctx->b_op() != NULL) { //questo boh
       //gestito da b_op
     }
 }
 
 void MyListener::exitF_cond(tinyrexxParser::F_condContext * ctx) {
+    if(ctx->ID()!= NULL) {
+        cout << "; " << ctx->ID()->getText() << "<";
+        cout << "; " << ctx->ID()->getText() << "++";
+    }
+    //non dovrebbe servire l'opzione b_op perche' non dovrebbe esserci altro da aggiungere oltre alla parentesi
     cout << ") {" << endl;
 }
 
