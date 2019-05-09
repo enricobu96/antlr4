@@ -34,6 +34,15 @@ public:
   virtual void enterW_loop(tinyrexxParser::W_loopContext * /*ctx*/) override { }
   virtual void exitW_loop(tinyrexxParser::W_loopContext * /*ctx*/) override { }
 
+  virtual void enterF_loop(tinyrexxParser::F_loopContext * /*ctx*/) override { }
+  virtual void exitF_loop(tinyrexxParser::F_loopContext * /*ctx*/) override { }
+
+  virtual void enterF_increment(tinyrexxParser::F_incrementContext * /*ctx*/) override { }
+  virtual void exitF_increment(tinyrexxParser::F_incrementContext * /*ctx*/) override { }
+
+  virtual void enterF_assign(tinyrexxParser::F_assignContext * /*ctx*/) override { }
+  virtual void exitF_assign(tinyrexxParser::F_assignContext * /*ctx*/) override { }
+
   virtual void enterTest(tinyrexxParser::TestContext * /*ctx*/) override { }
   virtual void exitTest(tinyrexxParser::TestContext * /*ctx*/) override { }
 

@@ -32,6 +32,15 @@ public:
   virtual void enterW_loop(tinyrexxParser::W_loopContext *ctx) = 0;
   virtual void exitW_loop(tinyrexxParser::W_loopContext *ctx) = 0;
 
+  virtual void enterF_loop(tinyrexxParser::F_loopContext *ctx) = 0;
+  virtual void exitF_loop(tinyrexxParser::F_loopContext *ctx) = 0;
+
+  virtual void enterF_increment(tinyrexxParser::F_incrementContext *ctx) = 0;
+  virtual void exitF_increment(tinyrexxParser::F_incrementContext *ctx) = 0;
+
+  virtual void enterF_assign(tinyrexxParser::F_assignContext *ctx) = 0;
+  virtual void exitF_assign(tinyrexxParser::F_assignContext *ctx) = 0;
+
   virtual void enterTest(tinyrexxParser::TestContext *ctx) = 0;
   virtual void exitTest(tinyrexxParser::TestContext *ctx) = 0;
 

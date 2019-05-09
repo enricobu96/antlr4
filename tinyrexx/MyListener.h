@@ -29,8 +29,14 @@ public:
   void enterW_loop(tinyrexxParser::W_loopContext * ctx);
   void exitW_loop(tinyrexxParser::W_loopContext * ctx);
 
-  // void enterF_loop(tinyrexxParser::F_loopContext * ctx);
-  // void exitF_loop(tinyrexxParser::F_loopContext * ctx);
+  void enterF_loop(tinyrexxParser::F_loopContext * ctx);
+  void exitF_loop(tinyrexxParser::F_loopContext * ctx);
+
+  void enterF_assign(tinyrexxParser::F_assignContext * ctx);
+  void exitF_assign(tinyrexxParser::F_assignContext * ctx);
+
+  void enterF_increment(tinyrexxParser::F_incrementContext * ctx);
+  void exitF_increment(tinyrexxParser::F_incrementContext * ctx);
 
   void enterTest(tinyrexxParser::TestContext * ctx);
   void exitTest(tinyrexxParser::TestContext * ctx);

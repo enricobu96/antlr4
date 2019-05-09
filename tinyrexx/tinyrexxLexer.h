@@ -13,10 +13,10 @@ class  tinyrexxLexer : public antlr4::Lexer {
 public:
   enum {
     T__0 = 1, T__1 = 2, T__2 = 3, T__3 = 4, T__4 = 5, T__5 = 6, T__6 = 7, 
-    T__7 = 8, T__8 = 9, T__9 = 10, T__10 = 11, T__11 = 12, T = 13, F = 14, 
-    AND = 15, OR = 16, NOT = 17, MINUS = 18, PLUS = 19, MUL = 20, DIV = 21, 
-    EQUAL = 22, DISEQUAL = 23, LT = 24, LEQ = 25, GT = 26, GEQ = 27, ID = 28, 
-    NUMBER = 29, WS = 30, ErrorChar = 31
+    T__7 = 8, T__8 = 9, T__9 = 10, T__10 = 11, T__11 = 12, T__12 = 13, T = 14, 
+    F = 15, AND = 16, OR = 17, NOT = 18, MINUS = 19, PLUS = 20, MUL = 21, 
+    DIV = 22, EQUAL = 23, DISEQUAL = 24, LT = 25, LEQ = 26, GT = 27, GEQ = 28, 
+    ID = 29, NUMBER = 30, WS = 31, ErrorChar = 32
   };
 
   tinyrexxLexer(antlr4::CharStream *input);
