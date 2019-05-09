@@ -29,8 +29,8 @@ public:
   void enterW_loop(tinyrexxParser::W_loopContext * ctx);
   void exitW_loop(tinyrexxParser::W_loopContext * ctx);
 
-  void enterF_loop(tinyrexxParser::F_loopContext * ctx);
-  void exitF_loop(tinyrexxParser::F_loopContext * ctx);
+  // void enterF_loop(tinyrexxParser::F_loopContext * ctx);
+  // void exitF_loop(tinyrexxParser::F_loopContext * ctx);
 
   void enterTest(tinyrexxParser::TestContext * ctx);
   void exitTest(tinyrexxParser::TestContext * ctx);
@@ -44,11 +44,13 @@ public:
   void enterDo_block(tinyrexxParser::Do_blockContext * ctx);
   void exitDo_block(tinyrexxParser::Do_blockContext * ctx);
 
-  void enterElse_cond(tinyrexxParser::Else_condContext * ctx);
   void exitElse_cond(tinyrexxParser::Else_condContext * ctx);
 
   void enterA_expr(tinyrexxParser::A_exprContext * ctx);
   void exitA_expr(tinyrexxParser::A_exprContext * ctx);
+
+  void enterB_expr(tinyrexxParser::B_exprContext * ctx);
+  void exitB_expr(tinyrexxParser::B_exprContext * ctx);
 
   void exitA_op(tinyrexxParser::A_opContext * ctx);
 

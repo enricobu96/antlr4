@@ -48,6 +48,60 @@ void MyListener::exitInput(tinyrexxParser::InputContext * ctx) {
     cout << string(indent, ' ') << "cin >> " << name << ";" << endl;
 }
 
+void MyListener::enterW_loop(tinyrexxParser::W_loopContext * ctx){
+    cout << string(indent, ' ') << "while";
+    indent += 4;
+}
+
+
+void MyListener::exitW_loop(tinyrexxParser::W_loopContext * ctx){
+    indent -= 4;
+    cout << string(indent, ' ') << "}" << endl;
+}
+
+
+void MyListener::enterTest(tinyrexxParser::TestContext * ctx){
+    cout << "(";
+}
+
+void MyListener::exitTest(tinyrexxParser::TestContext * ctx){
+    cout << ") {" << endl;
+}
+
+
+void MyListener::enterI_t_e(tinyrexxParser::I_t_eContext * ctx){
+    //entrata in if_block
+}
+
+void MyListener::exitI_t_e(tinyrexxParser::I_t_eContext * ctx){
+    //esce dall if_condition e l'ultima parentesi viene messa dal do_block
+}
+
+
+void MyListener::enterIf_cond(tinyrexxParser::If_condContext * ctx){
+  cout << string(indent, ' ') << "if ";
+}
+
+void MyListener::exitIf_cond(tinyrexxParser::If_condContext * ctx){
+
+}
+
+
+void enterDo_block(tinyrexxParser::Do_blockContext* ctx){
+  cout << "{" << endl;
+  indent += 4;
+}
+
+void exitDo_block(tinyrexxParser::Do_blockContext* ctx){
+  indent -= 4;
+  cout << "}" << endl;
+}
+
+
+void MyListener::exitElse_cond(tinyrexxParser::Else_condContext * ctx){
+  cout << string(indent, ' ') << " else " << endl;
+}
+
 
 void MyListener::enterA_expr(tinyrexxParser::A_exprContext * ctx) {
     // controllo in quale caso sono
@@ -78,6 +132,45 @@ void MyListener::exitA_expr(tinyrexxParser::A_exprContext * ctx) {
         // caso operatore - unario
     } else if(ctx->a_op() != NULL) {
         // caso operatore binario: gestito da exitA_op
+    } else {
+        // caso parentesi
+        cout << ")" ;
+    }
+}
+
+void MyListener::enterB_expr(tinyrexxParser::B_exprContext* ctx){
+  // controllo in quale caso sono
+  if(ctx->T() != NULL) {
+      // caso valore true
+      cout << ctx->T()->getText();
+  } else if(ctx->F() != NULL) {
+      // caso valore false
+      cout << ctx->F()->getText();
+  } else if(ctx->NOT() !=  NULL) {
+      // caso operatore NOT unario
+      cout << "!" ;
+  } else if(ctx->b_op() != NULL) {
+      // caso operatore binario: gestito da enterB_op
+  } else if(ctx->test() != NULL) {
+      // caso operatore binario: gestito da enterTest
+  } else {
+      // caso parentesi
+      cout << "(" ;
+  }
+}
+
+void MyListener::exitB_expr(tinyrexxParser::B_exprContext * ctx) {
+    // controllo in quale caso sono
+    if(ctx->T() != NULL) {
+        // caso true
+    } else if(ctx->F() != NULL) {
+        // caso false
+    } else if(ctx->NOT() !=  NULL) {
+        // caso operatore NOT unario
+    } else if(ctx->B_op() != NULL) {
+        // caso operatore binario: gestito da exitB_op
+    } else if(ctx->test() != NULL) {
+        // caso operatore binario: gestito da exitTest
     } else {
         // caso parentesi
         cout << ")" ;
@@ -115,6 +208,15 @@ void MyListener::exitR_op(tinyrexxParser::R_opContext * ctx) {
     }
 }
 
+void MyListener::exitB_op(tinyrexxParser::B_opContext * ctx) {
+    // controllo operatore aritmetico
+    if(ctx->AND() != NULL) {
+        cout << " && ";
+    } else if(ctx->MINUS() != NULL) {
+        cout << " || ";
+    }
+}
+
 //implementazione enterTerminate
 void MyListener::enterTerminate(tinyrexxParser::TerminateContext * ctx) {
   cout << string(indent, ' ') << "return ";
@@ -123,120 +225,4 @@ void MyListener::enterTerminate(tinyrexxParser::TerminateContext * ctx) {
 //implementazione exitTerminate
 void MyListener::exitTerminate(tinyrexxParser::TerminateContext * ctx) {
   cout << " ;" << endl;
-}
-
-
-void MyListener::enterW_loop(tinyrexxParser::W_loopContext * ctx){
-    cout << string(indent, ' ') << "while";
-    indent += 4;
-}
-
-
-void MyListener::exitW_loop(tinyrexxParser::W_loopContext * ctx){
-    indent -= 4;
-    cout << string(indent, ' ') << "}" << endl;
-}
-
-
-void MyListener::enterTest(tinyrexxParser::TestContext * ctx){
-    cout << "(";
-}
-
-void MyListener::exitTest(tinyrexxParser::TestContext * ctx){
-    cout << ") {" << endl;
-}
-
-void MyListener::enterF_loop(tinyrexxParser::F_loopContext * ctx){
-    cout << string(indent, ' ') << "for ";
-}
-
-void MyListener::exitF_loop(tinyrexxParser::F_loopContext * ctx){
-    cout << "}" << endl;
-    indent -= 4;
-}
-
-void MyListener::enterF_cond(tinyrexxParser::F_condContext * ctx) {
-    cout << "(";
-    if(ctx->ID() != NULL) {
-        cout << ctx->ID()->getText() << "=";
-        //assign si occupa solo di scrivere il numero, non anche variabile=
-    }
-    else if(ctx->b_op() != NULL) { //questo boh
-      //gestito da b_op
-    }
-}
-
-void MyListener::exitF_cond(tinyrexxParser::F_condContext * ctx) {
-    if(ctx->ID()!= NULL) {
-        cout << "; " << ctx->ID()->getText() << "<";
-        cout << "; " << ctx->ID()->getText() << "++";
-    }
-    //non dovrebbe servire l'opzione b_op perche' non dovrebbe esserci altro da aggiungere oltre alla parentesi
-    cout << ") {" << endl;
-}
-
-//Da rivedere nella struttura della grammatica, qualcosa non funziona
-
-void MyListener::enterI_t_e(tinyrexxParser::I_t_eContext * ctx){
-    //entrata in if_block
-}
-
-void MyListener::exitI_t_e(tinyrexxParser::I_t_eContext * ctx){
-    //esce dall if_condition e l'ultima parentesi viene messa dal do_block
-}
-
-void MyListener::enterElse_bl(tinyrexxParser::Else_blContext * ctx){
-  indent -= 4;
-  cout << string(indent, ' ') << "}" << endl << "else {" << endl;
-  indent += 4;
-}
-
-void MyListener::enterIf_cond(tinyrexxParser::If_condContext * ctx){
-  cout << string(indent, ' ') << "if ";
-}
-
-void MyListener::exitIf_cond(tinyrexxParser::If_condContext * ctx){
-
-}
-
-void MyListener::enterElse_cond(tinyrexxParser::Else_condContext * ctx){
-  cout << string(indent, ' ') << " else " << endl;
-}
-
-void MyListener::exitElse_cond(tinyrexxParser::Else_condContext * ctx){
-
-}
-//Anche l'operatore booleano non funziona, và corretto
-
-void MyListener::enterB_op(tinyrexxParser::B_opContext * ctx){
-  // controllo in quale caso sono
-  if(ctx->AND() != NULL) {
-      cout << "&&";
-  } else if(ctx->OR() != NULL) {
-      cout << "||";
-  } else if(ctx->NOT() !=  NULL) {
-      cout << "!";
-  } else {
-      cout << "(" ;
-  }
-}
-
-void MyListener::exitB_op(tinyrexxParser::B_opContext * ctx){
-  if(ctx->AND() != NULL) {
-
-  } else if(ctx->OR() != NULL) {
-
-  } else if(ctx->NOT() != NULL) {
-
-  }
-}
-
-void enterDo_block(tinyrexxParser::Do_blockContext* ctx){
-  cout << "{" << endl;
-  indent += 4;
-}
-
-void exitDo_block(tinyrexxParser::Do_blockContext* ctx){
-  indent -= 4;
-  cout << "}" << endl;
 }
