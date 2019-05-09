@@ -43,6 +43,15 @@ public:
   virtual void enterI_t_e(tinyrexxParser::I_t_eContext * /*ctx*/) override { }
   virtual void exitI_t_e(tinyrexxParser::I_t_eContext * /*ctx*/) override { }
 
+  virtual void enterIf_cond(tinyrexxParser::If_condContext * /*ctx*/) override { }
+  virtual void exitIf_cond(tinyrexxParser::If_condContext * /*ctx*/) override { }
+
+  virtual void enterDo_block(tinyrexxParser::Do_blockContext * /*ctx*/) override { }
+  virtual void exitDo_block(tinyrexxParser::Do_blockContext * /*ctx*/) override { }
+
+  virtual void enterElse_cond(tinyrexxParser::Else_condContext * /*ctx*/) override { }
+  virtual void exitElse_cond(tinyrexxParser::Else_condContext * /*ctx*/) override { }
+
   virtual void enterA_expr(tinyrexxParser::A_exprContext * /*ctx*/) override { }
   virtual void exitA_expr(tinyrexxParser::A_exprContext * /*ctx*/) override { }
 
@@ -57,12 +66,6 @@ public:
 
   virtual void enterF_cond(tinyrexxParser::F_condContext * /*ctx*/) override { }
   virtual void exitF_cond(tinyrexxParser::F_condContext * /*ctx*/) override { }
-
-  virtual void enterElse_bl(tinyrexxParser::Else_blContext * /*ctx*/) override { }
-  virtual void exitElse_bl(tinyrexxParser::Else_blContext * /*ctx*/) override { }
-
-  virtual void enterThen_bl(tinyrexxParser::Then_blContext * /*ctx*/) override { }
-  virtual void exitThen_bl(tinyrexxParser::Then_blContext * /*ctx*/) override { }
 
   virtual void enterTerminate(tinyrexxParser::TerminateContext * /*ctx*/) override { }
   virtual void exitTerminate(tinyrexxParser::TerminateContext * /*ctx*/) override { }

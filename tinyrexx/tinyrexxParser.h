@@ -21,9 +21,9 @@ public:
 
   enum {
     RuleProgram = 0, RuleStatement = 1, RuleAssign = 2, RulePrint = 3, RuleInput = 4, 
-    RuleW_loop = 5, RuleF_loop = 6, RuleTest = 7, RuleI_t_e = 8, RuleA_expr = 9, 
-    RuleA_op = 10, RuleR_op = 11, RuleB_op = 12, RuleF_cond = 13, RuleElse_bl = 14, 
-    RuleThen_bl = 15, RuleTerminate = 16
+    RuleW_loop = 5, RuleF_loop = 6, RuleTest = 7, RuleI_t_e = 8, RuleIf_cond = 9, 
+    RuleDo_block = 10, RuleElse_cond = 11, RuleA_expr = 12, RuleA_op = 13, 
+    RuleR_op = 14, RuleB_op = 15, RuleF_cond = 16, RuleTerminate = 17
   };
 
   tinyrexxParser(antlr4::TokenStream *input);
@@ -45,13 +45,14 @@ public:
   class F_loopContext;
   class TestContext;
   class I_t_eContext;
+  class If_condContext;
+  class Do_blockContext;
+  class Else_condContext;
   class A_exprContext;
   class A_opContext;
   class R_opContext;
   class B_opContext;
   class F_condContext;
-  class Else_blContext;
-  class Then_blContext;
   class TerminateContext; 
 
   class  ProgramContext : public antlr4::ParserRuleContext {
@@ -178,11 +179,10 @@ public:
   public:
     I_t_eContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    F_condContext *f_cond();
-    Then_blContext *then_bl();
-    std::vector<StatementContext *> statement();
-    StatementContext* statement(size_t i);
-    Else_blContext *else_bl();
+    If_condContext *if_cond();
+    std::vector<Do_blockContext *> do_block();
+    Do_blockContext* do_block(size_t i);
+    Else_condContext *else_cond();
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
     virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
@@ -190,6 +190,45 @@ public:
   };
 
   I_t_eContext* i_t_e();
+
+  class  If_condContext : public antlr4::ParserRuleContext {
+  public:
+    If_condContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    B_opContext *b_op();
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+   
+  };
+
+  If_condContext* if_cond();
+
+  class  Do_blockContext : public antlr4::ParserRuleContext {
+  public:
+    Do_blockContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    std::vector<StatementContext *> statement();
+    StatementContext* statement(size_t i);
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+   
+  };
+
+  Do_blockContext* do_block();
+
+  class  Else_condContext : public antlr4::ParserRuleContext {
+  public:
+    Else_condContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+   
+  };
+
+  Else_condContext* else_cond();
 
   class  A_exprContext : public antlr4::ParserRuleContext {
   public:
@@ -281,30 +320,6 @@ public:
   };
 
   F_condContext* f_cond();
-
-  class  Else_blContext : public antlr4::ParserRuleContext {
-  public:
-    Else_blContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-
-    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
-    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
-   
-  };
-
-  Else_blContext* else_bl();
-
-  class  Then_blContext : public antlr4::ParserRuleContext {
-  public:
-    Then_blContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-
-    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
-    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
-   
-  };
-
-  Then_blContext* then_bl();
 
   class  TerminateContext : public antlr4::ParserRuleContext {
   public:

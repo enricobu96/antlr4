@@ -41,6 +41,15 @@ public:
   virtual void enterI_t_e(tinyrexxParser::I_t_eContext *ctx) = 0;
   virtual void exitI_t_e(tinyrexxParser::I_t_eContext *ctx) = 0;
 
+  virtual void enterIf_cond(tinyrexxParser::If_condContext *ctx) = 0;
+  virtual void exitIf_cond(tinyrexxParser::If_condContext *ctx) = 0;
+
+  virtual void enterDo_block(tinyrexxParser::Do_blockContext *ctx) = 0;
+  virtual void exitDo_block(tinyrexxParser::Do_blockContext *ctx) = 0;
+
+  virtual void enterElse_cond(tinyrexxParser::Else_condContext *ctx) = 0;
+  virtual void exitElse_cond(tinyrexxParser::Else_condContext *ctx) = 0;
+
   virtual void enterA_expr(tinyrexxParser::A_exprContext *ctx) = 0;
   virtual void exitA_expr(tinyrexxParser::A_exprContext *ctx) = 0;
 
@@ -55,12 +64,6 @@ public:
 
   virtual void enterF_cond(tinyrexxParser::F_condContext *ctx) = 0;
   virtual void exitF_cond(tinyrexxParser::F_condContext *ctx) = 0;
-
-  virtual void enterElse_bl(tinyrexxParser::Else_blContext *ctx) = 0;
-  virtual void exitElse_bl(tinyrexxParser::Else_blContext *ctx) = 0;
-
-  virtual void enterThen_bl(tinyrexxParser::Then_blContext *ctx) = 0;
-  virtual void exitThen_bl(tinyrexxParser::Then_blContext *ctx) = 0;
 
   virtual void enterTerminate(tinyrexxParser::TerminateContext *ctx) = 0;
   virtual void exitTerminate(tinyrexxParser::TerminateContext *ctx) = 0;
