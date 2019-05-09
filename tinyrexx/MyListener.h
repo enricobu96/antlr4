@@ -53,9 +53,12 @@ public:
   void enterB_op(tinyrexxParser::B_opContext * ctx);
   void exitB_op(tinyrexxParser::B_opContext * ctx);
 
-  void enterElse_bl(tinyrexxParser::Else_blContext * ctx);
-  void exitElse_bl(tinyrexxParser::Else_blContext * ctx);
+  void enterIf_cond(tinyrexxParser::If_condContext * ctx);
+  void exitIf_cond(tinyrexxParser::If_condContext * ctx);
 
-  void enterThen_bl(tinyrexxParser::Then_blContext * ctx);
-  void exitThen_bl(tinyrexxParser::Then_blContext * ctx);
+  void enterDo_block(tinyrexxParser::Do_blockContext * ctx);
+  void exitDo_block(tinyrexxParser::Do_blockContext * ctx);
+
+  void enterElse_cond(tinyrexxParser::Else_condContext * ctx); 
+  void exitElse_cond(tinyrexxParser::Else_condContext * ctx);
 };
