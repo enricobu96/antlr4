@@ -64,16 +64,15 @@ void MyListener::enterF_loop(tinyrexxParser::F_loopContext * ctx){
   indent += 4;
 }
 void MyListener::exitF_loop(tinyrexxParser::F_loopContext * ctx){
-  cout << '}' << endl;
   indent -= 4;
+  cout << string(indent, ' ') << '}' << endl;
 }
 
 void MyListener::enterF_assign(tinyrexxParser::F_assignContext * ctx){
-  cout << ctx->ID()->getText() << "=";
+  cout << ctx->ID()->getText() << " = ";
 }
 void MyListener::exitF_assign(tinyrexxParser::F_assignContext * ctx){
-  //cout << ctx->ID()->getText() << "=" << ctx->a_expr() << ;
-  //cout << ctx->assign()->ID()->getText() << "<" << ctx->ID()->getText() << ";" << ctx->ID()->getText() << "++){" << endl;
+
 }
 
 void MyListener::enterF_increment(tinyrexxParser::F_incrementContext * ctx){
@@ -81,7 +80,7 @@ void MyListener::enterF_increment(tinyrexxParser::F_incrementContext * ctx){
 }
 
 void MyListener::exitF_increment(tinyrexxParser::F_incrementContext * ctx){
-  cout << ";" <<ctx->f_assign()->ID()->getText() << "<" << ctx->ID()->getText() << ";" << ctx->ID()->getText() << "++){" << endl;
+  cout << " ; " <<ctx->f_assign()->ID()->getText() << "<=" << ctx->ID()->getText() << " ; " << ctx->ID()->getText() << "++){" << endl;
 }
 
 void MyListener::enterTest(tinyrexxParser::TestContext * ctx){
