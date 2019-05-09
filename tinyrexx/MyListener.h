@@ -29,29 +29,14 @@ public:
   void enterW_loop(tinyrexxParser::W_loopContext * ctx);
   void exitW_loop(tinyrexxParser::W_loopContext * ctx);
 
-  void enterTest(tinyrexxParser::TestContext * ctx);
-  void exitTest(tinyrexxParser::TestContext * ctx);
-
-  void enterA_expr(tinyrexxParser::A_exprContext * ctx);
-  void exitA_expr(tinyrexxParser::A_exprContext * ctx);
-
-  void exitA_op(tinyrexxParser::A_opContext * ctx);
-  void exitR_op(tinyrexxParser::R_opContext * ctx);
-
-  void enterTerminate(tinyrexxParser::TerminateContext * ctx);
-  void exitTerminate(tinyrexxParser::TerminateContext * ctx);
-
-  void enterI_t_e(tinyrexxParser::I_t_eContext * ctx);
-  void exitI_t_e(tinyrexxParser::I_t_eContext * ctx);
-
   void enterF_loop(tinyrexxParser::F_loopContext * ctx);
   void exitF_loop(tinyrexxParser::F_loopContext * ctx);
 
-  void enterF_cond(tinyrexxParser::F_condContext * ctx);
-  void exitF_cond(tinyrexxParser::F_condContext * ctx);
+  void enterTest(tinyrexxParser::TestContext * ctx);
+  void exitTest(tinyrexxParser::TestContext * ctx);
 
-  void enterB_op(tinyrexxParser::B_opContext * ctx);
-  void exitB_op(tinyrexxParser::B_opContext * ctx);
+  void enterI_t_e(tinyrexxParser::I_t_eContext * ctx);
+  void exitI_t_e(tinyrexxParser::I_t_eContext * ctx);
 
   void enterIf_cond(tinyrexxParser::If_condContext * ctx);
   void exitIf_cond(tinyrexxParser::If_condContext * ctx);
@@ -59,6 +44,18 @@ public:
   void enterDo_block(tinyrexxParser::Do_blockContext * ctx);
   void exitDo_block(tinyrexxParser::Do_blockContext * ctx);
 
-  void enterElse_cond(tinyrexxParser::Else_condContext * ctx); 
+  void enterElse_cond(tinyrexxParser::Else_condContext * ctx);
   void exitElse_cond(tinyrexxParser::Else_condContext * ctx);
+
+  void enterA_expr(tinyrexxParser::A_exprContext * ctx);
+  void exitA_expr(tinyrexxParser::A_exprContext * ctx);
+
+  void exitA_op(tinyrexxParser::A_opContext * ctx);
+
+  void exitR_op(tinyrexxParser::R_opContext * ctx);
+
+  void exitB_op(tinyrexxParser::B_opContext * ctx);
+
+  void enterTerminate(tinyrexxParser::TerminateContext * ctx);
+  void exitTerminate(tinyrexxParser::TerminateContext * ctx);
 };

@@ -32,9 +32,6 @@ public:
   virtual void enterW_loop(tinyrexxParser::W_loopContext *ctx) = 0;
   virtual void exitW_loop(tinyrexxParser::W_loopContext *ctx) = 0;
 
-  virtual void enterF_loop(tinyrexxParser::F_loopContext *ctx) = 0;
-  virtual void exitF_loop(tinyrexxParser::F_loopContext *ctx) = 0;
-
   virtual void enterTest(tinyrexxParser::TestContext *ctx) = 0;
   virtual void exitTest(tinyrexxParser::TestContext *ctx) = 0;
 
@@ -53,6 +50,9 @@ public:
   virtual void enterA_expr(tinyrexxParser::A_exprContext *ctx) = 0;
   virtual void exitA_expr(tinyrexxParser::A_exprContext *ctx) = 0;
 
+  virtual void enterB_expr(tinyrexxParser::B_exprContext *ctx) = 0;
+  virtual void exitB_expr(tinyrexxParser::B_exprContext *ctx) = 0;
+
   virtual void enterA_op(tinyrexxParser::A_opContext *ctx) = 0;
   virtual void exitA_op(tinyrexxParser::A_opContext *ctx) = 0;
 
@@ -61,9 +61,6 @@ public:
 
   virtual void enterB_op(tinyrexxParser::B_opContext *ctx) = 0;
   virtual void exitB_op(tinyrexxParser::B_opContext *ctx) = 0;
-
-  virtual void enterF_cond(tinyrexxParser::F_condContext *ctx) = 0;
-  virtual void exitF_cond(tinyrexxParser::F_condContext *ctx) = 0;
 
   virtual void enterTerminate(tinyrexxParser::TerminateContext *ctx) = 0;
   virtual void exitTerminate(tinyrexxParser::TerminateContext *ctx) = 0;
