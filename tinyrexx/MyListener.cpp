@@ -178,35 +178,28 @@ void MyListener::exitF_cond(tinyrexxParser::F_condContext * ctx) {
 //Da rivedere nella struttura della grammatica, qualcosa non funziona
 
 void MyListener::enterI_t_e(tinyrexxParser::I_t_eContext * ctx){
-    cout << string(indent, ' ') << "if ";
-    indent += 4;
+
 }
 
 void MyListener::exitI_t_e(tinyrexxParser::I_t_eContext * ctx){
-    cout << endl << "}";
-    indent -= 4;
+
 }
 
-void MyListener::enterElse_bl(tinyrexxParser::Else_blContext * ctx){
-  indent -= 4;
-  cout << string(indent, ' ') << "}" << endl << "else {" << endl;
-  indent += 4;
+void MyListener::enterIf_cond(tinyrexxParser::If_condContext * ctx){
+  cout << string(indent, ' ') << "if ";
 }
 
-void MyListener::exitElse_bl(tinyrexxParser::Else_blContext * ctx){
-  //indent -= 4;
-  //non fa nulla apparte sistemare l'output
+void MyListener::exitIf_cond(tinyrexxParser::If_condContext * ctx){
+
 }
 
-void MyListener::enterThen_bl(tinyrexxParser::Then_blContext * ctx){
-  cout << ") {" << endl;
-  indent += 4;
+void MyListener::enterElse_cond(tinyrexxParser::Else_condContext * ctx){
+  cout << string(indent, ' ') << " else " << endl;
 }
 
-void MyListener::exitThen_bl(tinyrexxParser::Then_blContext * ctx){
-  //non fa nulla, il blocco viene chiuso da i_t_e
-}
+void MyListener::exitElse_cond(tinyrexxParser::Else_condContext * ctx){
 
+}
 //Anche l'operatore booleano non funziona, và corretto
 
 void MyListener::enterB_op(tinyrexxParser::B_opContext * ctx){
