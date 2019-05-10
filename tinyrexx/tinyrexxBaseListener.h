@@ -34,14 +34,35 @@ public:
   virtual void enterW_loop(tinyrexxParser::W_loopContext * /*ctx*/) override { }
   virtual void exitW_loop(tinyrexxParser::W_loopContext * /*ctx*/) override { }
 
-  virtual void enterI_t_e(tinyrexxParser::I_t_eContext * /*ctx*/) override { }
-  virtual void exitI_t_e(tinyrexxParser::I_t_eContext * /*ctx*/) override { }
+  virtual void enterF_loop(tinyrexxParser::F_loopContext * /*ctx*/) override { }
+  virtual void exitF_loop(tinyrexxParser::F_loopContext * /*ctx*/) override { }
+
+  virtual void enterF_increment(tinyrexxParser::F_incrementContext * /*ctx*/) override { }
+  virtual void exitF_increment(tinyrexxParser::F_incrementContext * /*ctx*/) override { }
+
+  virtual void enterF_assign(tinyrexxParser::F_assignContext * /*ctx*/) override { }
+  virtual void exitF_assign(tinyrexxParser::F_assignContext * /*ctx*/) override { }
 
   virtual void enterTest(tinyrexxParser::TestContext * /*ctx*/) override { }
   virtual void exitTest(tinyrexxParser::TestContext * /*ctx*/) override { }
 
+  virtual void enterI_t_e(tinyrexxParser::I_t_eContext * /*ctx*/) override { }
+  virtual void exitI_t_e(tinyrexxParser::I_t_eContext * /*ctx*/) override { }
+
+  virtual void enterIf_cond(tinyrexxParser::If_condContext * /*ctx*/) override { }
+  virtual void exitIf_cond(tinyrexxParser::If_condContext * /*ctx*/) override { }
+
+  virtual void enterDo_block(tinyrexxParser::Do_blockContext * /*ctx*/) override { }
+  virtual void exitDo_block(tinyrexxParser::Do_blockContext * /*ctx*/) override { }
+
+  virtual void enterElse_cond(tinyrexxParser::Else_condContext * /*ctx*/) override { }
+  virtual void exitElse_cond(tinyrexxParser::Else_condContext * /*ctx*/) override { }
+
   virtual void enterA_expr(tinyrexxParser::A_exprContext * /*ctx*/) override { }
   virtual void exitA_expr(tinyrexxParser::A_exprContext * /*ctx*/) override { }
+
+  virtual void enterB_expr(tinyrexxParser::B_exprContext * /*ctx*/) override { }
+  virtual void exitB_expr(tinyrexxParser::B_exprContext * /*ctx*/) override { }
 
   virtual void enterA_op(tinyrexxParser::A_opContext * /*ctx*/) override { }
   virtual void exitA_op(tinyrexxParser::A_opContext * /*ctx*/) override { }
@@ -49,11 +70,11 @@ public:
   virtual void enterR_op(tinyrexxParser::R_opContext * /*ctx*/) override { }
   virtual void exitR_op(tinyrexxParser::R_opContext * /*ctx*/) override { }
 
+  virtual void enterB_op(tinyrexxParser::B_opContext * /*ctx*/) override { }
+  virtual void exitB_op(tinyrexxParser::B_opContext * /*ctx*/) override { }
+
   virtual void enterTerminate(tinyrexxParser::TerminateContext * /*ctx*/) override { }
   virtual void exitTerminate(tinyrexxParser::TerminateContext * /*ctx*/) override { }
-
-  virtual void enterGuardia(tinyrexxParser::GuardiaContext * /*ctx*/) override { }
-  virtual void exitGuardia(tinyrexxParser::GuardiaContext * /*ctx*/) override { }
 
 
   virtual void enterEveryRule(antlr4::ParserRuleContext * /*ctx*/) override { }
@@ -62,3 +83,4 @@ public:
   virtual void visitErrorNode(antlr4::tree::ErrorNode * /*node*/) override { }
 
 };
+

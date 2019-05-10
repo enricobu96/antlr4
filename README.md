@@ -60,17 +60,17 @@ Modificate il codice del traduttore per fare in modo che funzioni per programmi 
 
 ### Esercizio 1
 
-- [ ] Cicli con contatori
-- [ ] if-then-else
-- [ ] Espressioni booleane complesse
-- [ ] Primo esempio
-- [ ] Secondo esempio
+- [x] Cicli con contatori
+- [x] if-then-else
+- [x] Espressioni booleane complesse
+- [x] Primo esempio
+- [x] Secondo esempio
 
 ### Esercizio 2
 
-- [ ] Implementazione dei cicli con contatori
-- [ ] Implementazione di if-then-else
-- [ ] Implementazione di espressioni booleane complesse
+- [x] Implementazione dei cicli con contatori
+- [x] Implementazione di if-then-else
+- [x] Implementazione di espressioni booleane complesse
 - [ ] Traduzione del primo esempio
 - [ ] Traduzione del secondo esempio
 
@@ -80,7 +80,7 @@ Modificate il codice del traduttore per fare in modo che funzioni per programmi 
 - [tinyrexx.g4](https://github.com/enricobu96/TMOALF/blob/master/tinyrexx/tinyrexx.g4) - Sintassi del linguaggio
 - [MyListener.cpp](https://github.com/enricobu96/TMOALF/blob/master/tinyrexx/MyListener.cpp) - Implementazione della sintassi
 - [MyListener.h](https://github.com/enricobu96/TMOALF/blob/master/tinyrexx/MyListener.h) - File di header
-- [Esempio 1](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- [Esempio 2](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+- [Esempio 1](https://github.com/enricobu96/antlr4/blob/master/examples/fibonacci.rexx)
+- [Esempio 2](https://github.com/enricobu96/antlr4/blob/master/examples/tipotriangolo.rexx)
 - [Traduzione in C++ di Esempio 1](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 - [Traduzione in C++ di Esempio 2](https://www.youtube.com/watch?v=dQw4w9WgXcQ)

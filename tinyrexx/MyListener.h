@@ -29,16 +29,42 @@ public:
   void enterW_loop(tinyrexxParser::W_loopContext * ctx);
   void exitW_loop(tinyrexxParser::W_loopContext * ctx);
 
+  void enterF_loop(tinyrexxParser::F_loopContext * ctx);
+  void exitF_loop(tinyrexxParser::F_loopContext * ctx);
+
+  void enterF_assign(tinyrexxParser::F_assignContext * ctx);
+  void exitF_assign(tinyrexxParser::F_assignContext * ctx);
+
+  void enterF_increment(tinyrexxParser::F_incrementContext * ctx);
+  void exitF_increment(tinyrexxParser::F_incrementContext * ctx);
+
   void enterTest(tinyrexxParser::TestContext * ctx);
   void exitTest(tinyrexxParser::TestContext * ctx);
+
+  void enterI_t_e(tinyrexxParser::I_t_eContext * ctx);
+  void exitI_t_e(tinyrexxParser::I_t_eContext * ctx);
+
+  void enterIf_cond(tinyrexxParser::If_condContext * ctx);
+  void exitIf_cond(tinyrexxParser::If_condContext * ctx);
+
+  void enterDo_block(tinyrexxParser::Do_blockContext * ctx);
+  void exitDo_block(tinyrexxParser::Do_blockContext * ctx);
+
+  void enterElse_cond(tinyrexxParser::Else_condContext * ctx);
+  void exitElse_cond(tinyrexxParser::Else_condContext * ctx);
 
   void enterA_expr(tinyrexxParser::A_exprContext * ctx);
   void exitA_expr(tinyrexxParser::A_exprContext * ctx);
 
+  void enterB_expr(tinyrexxParser::B_exprContext * ctx);
+  void exitB_expr(tinyrexxParser::B_exprContext * ctx);
+
   void exitA_op(tinyrexxParser::A_opContext * ctx);
+
   void exitR_op(tinyrexxParser::R_opContext * ctx);
+
+  void exitB_op(tinyrexxParser::B_opContext * ctx);
 
   void enterTerminate(tinyrexxParser::TerminateContext * ctx);
   void exitTerminate(tinyrexxParser::TerminateContext * ctx);
-
 };
