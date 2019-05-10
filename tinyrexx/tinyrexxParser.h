@@ -211,8 +211,7 @@ public:
     I_t_eContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     If_condContext *if_cond();
-    std::vector<Do_blockContext *> do_block();
-    Do_blockContext* do_block(size_t i);
+    Do_blockContext *do_block();
     Else_condContext *else_cond();
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
@@ -253,6 +252,7 @@ public:
   public:
     Else_condContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
+    Do_blockContext *do_block();
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
     virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
