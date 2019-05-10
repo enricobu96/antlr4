@@ -84,11 +84,9 @@ void MyListener::exitF_increment(tinyrexxParser::F_incrementContext * ctx){
 }
 
 void MyListener::enterTest(tinyrexxParser::TestContext * ctx){
-    cout << "(";  // chiedere se lasciare o togliere
 }
 
 void MyListener::exitTest(tinyrexxParser::TestContext * ctx){
-    cout << ")";  // chiedere se lasciare o togliere
 }
 
 
