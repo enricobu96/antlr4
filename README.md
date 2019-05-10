@@ -60,17 +60,17 @@ Modificate il codice del traduttore per fare in modo che funzioni per programmi 
 
 ### Esercizio 1
 
-- [ ] Cicli con contatori
-- [ ] if-then-else
-- [ ] Espressioni booleane complesse
-- [ ] Primo esempio
-- [ ] Secondo esempio
+- [x] Cicli con contatori
+- [x] if-then-else
+- [x] Espressioni booleane complesse
+- [x] Primo esempio
+- [x] Secondo esempio
 
 ### Esercizio 2
 
-- [ ] Implementazione dei cicli con contatori
-- [ ] Implementazione di if-then-else
-- [ ] Implementazione di espressioni booleane complesse
+- [x] Implementazione dei cicli con contatori
+- [x] Implementazione di if-then-else
+- [x] Implementazione di espressioni booleane complesse
 - [ ] Traduzione del primo esempio
 - [ ] Traduzione del secondo esempio
 
