@@ -4,7 +4,7 @@ program   : statement+;
 
 statement : assign | print | input | w_loop | f_loop | i_t_e | b_expr | terminate;
 
-assign    : ID '=' a_expr | ID '=' b_op;
+assign    : ID '=' a_expr | ID '=' b_expr;
 print     : 'say' a_expr ;
 input     : 'pull' ID ;
 w_loop    : 'do' 'while' test statement+ 'end' ;
