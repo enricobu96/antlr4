@@ -1,6 +1,6 @@
 grammar tinyrexx;
 
-program   : statement+;
+program   : statement+ EOF;
 
 statement : assign | print | input | w_loop | f_loop | i_t_e | b_expr | terminate;
 
@@ -9,7 +9,7 @@ print     : 'say' a_expr ;
 input     : 'pull' ID ;
 w_loop    : 'do' 'while' test statement+ 'end' ;
 f_loop    : 'do' f_increment statement+;
-f_increment  : f_assign 'to' ID;
+f_increment  : f_assign 'to' ID | f_assign 'to' NUMBER;
 f_assign  : ID '=' a_expr ;
 test      : a_expr r_op a_expr;
 i_t_e     : if_cond do_block | if_cond do_block else_cond;

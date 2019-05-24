@@ -80,7 +80,14 @@ void MyListener::enterF_increment(tinyrexxParser::F_incrementContext * ctx){
 }
 
 void MyListener::exitF_increment(tinyrexxParser::F_incrementContext * ctx){
-cout << " ; " << ctx->f_assign()->ID()->getText() << "<=" << ctx->ID()->getText() << " ; " << ctx->f_assign()->ID()->getText() << "++){" << endl;
+  cout << " ; " << ctx->f_assign()->ID()->getText() << "<=";
+  if(ctx->ID() != NULL) {
+    cout << ctx->ID()->getText() << " ; ";
+  }
+  else if(ctx->NUMBER() != NULL) {
+    cout << ctx->NUMBER()->getText() << " ; ";
+  }
+  cout << ctx->f_assign()->ID()->getText() << "++){" << endl;
 }
 
 void MyListener::enterTest(tinyrexxParser::TestContext * ctx){

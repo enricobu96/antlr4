@@ -62,6 +62,7 @@ public:
   public:
     ProgramContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *EOF();
     std::vector<StatementContext *> statement();
     StatementContext* statement(size_t i);
 
@@ -169,6 +170,7 @@ public:
     virtual size_t getRuleIndex() const override;
     F_assignContext *f_assign();
     antlr4::tree::TerminalNode *ID();
+    antlr4::tree::TerminalNode *NUMBER();
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
     virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
