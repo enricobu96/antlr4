@@ -101,10 +101,11 @@ void MyListener::exitI_t_e(tinyrexxParser::I_t_eContext * ctx){
 
 
 void MyListener::enterIf_cond(tinyrexxParser::If_condContext * ctx){
-  cout << string(indent, ' ') << "if ";
+  cout << string(indent, ' ') << "if (";
 }
 
 void MyListener::exitIf_cond(tinyrexxParser::If_condContext * ctx){
+  cout << ")";
 }
 
 
@@ -177,7 +178,9 @@ void MyListener::enterB_expr(tinyrexxParser::B_exprContext* ctx){
       // caso operatore binario: gestito da enterB_op
   } else if(ctx->test() != NULL) {
       // caso operatore binario: gestito da enterTest
-  } else {
+  }else if(ctx->a_expr() != NULL) {
+      // caso operatore binario: gestito da enterTest
+  }else {
       // caso parentesi
       cout << "(" ;
   }
@@ -194,6 +197,8 @@ void MyListener::exitB_expr(tinyrexxParser::B_exprContext * ctx) {
     } else if(ctx->b_op() != NULL) {
         // caso operatore binario: gestito da exitB_op
     } else if(ctx->test() != NULL) {
+        // caso operatore binario: gestito da exitTest
+    }else if(ctx->a_expr() != NULL) {
         // caso operatore binario: gestito da exitTest
     } else {
         // caso parentesi

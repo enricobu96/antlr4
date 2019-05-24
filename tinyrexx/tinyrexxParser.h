@@ -290,6 +290,7 @@ public:
     B_exprContext* b_expr(size_t i);
     antlr4::tree::TerminalNode *NOT();
     TestContext *test();
+    A_exprContext *a_expr();
     B_opContext *b_op();
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;

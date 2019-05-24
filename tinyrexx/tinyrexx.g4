@@ -17,7 +17,7 @@ if_cond   : 'if' b_expr 'then';
 do_block  : 'do' statement+ 'end';
 else_cond : 'else' do_block;
 a_expr    : ID | NUMBER | '(' a_expr ')' | a_expr a_op a_expr | MINUS a_expr ;
-b_expr    : T | F | '(' b_expr ')' | b_expr b_op b_expr | NOT b_expr | test;
+b_expr    : T | F | '(' b_expr ')' | b_expr b_op b_expr | NOT b_expr | test |a_expr;
 a_op      : MINUS | PLUS | MUL | DIV ;
 r_op      : EQUAL | LT | LEQ | GT | GEQ | DISEQUAL;
 b_op      : AND|OR;
