@@ -76,7 +76,7 @@ void MyListener::exitF_assign(tinyrexxParser::F_assignContext * ctx){
 }
 
 void MyListener::enterF_increment(tinyrexxParser::F_incrementContext * ctx){
-  cout << "( ";
+  cout << "(";
 }
 
 void MyListener::exitF_increment(tinyrexxParser::F_incrementContext * ctx){
@@ -101,7 +101,7 @@ void MyListener::exitI_t_e(tinyrexxParser::I_t_eContext * ctx){
 
 
 void MyListener::enterIf_cond(tinyrexxParser::If_condContext * ctx){
-  cout << string(indent, ' ') << "if (";
+  cout << string(indent, ' ') << "if(";
 }
 
 void MyListener::exitIf_cond(tinyrexxParser::If_condContext * ctx){
