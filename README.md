@@ -71,8 +71,8 @@ Modificate il codice del traduttore per fare in modo che funzioni per programmi 
 - [x] Implementazione dei cicli con contatori
 - [x] Implementazione di if-then-else
 - [x] Implementazione di espressioni booleane complesse
-- [ ] Traduzione del primo esempio
-- [ ] Traduzione del secondo esempio
+- [x] Traduzione del primo esempio
+- [x] Traduzione del secondo esempio
 
 ### Link veloci ai file
 
